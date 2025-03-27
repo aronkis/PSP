@@ -1,0 +1,50 @@
+Users (Employees and Administrators):
+id, username, email, password, role
+(1, 'admin_user', 'admin@example.com', 'adminpassword', 'Administrator')
+(2, 'employee1', 'employee1@example.com', 'password123', 'Employee')
+(3, 'employee2', 'employee2@example.com', 'password123', 'Employee')
+
+Clients (No Password):
+id, name, email
+(1, 'John Doe', 'john.doe@example.com', '1234567890')
+(2, 'Jane Smith', 'jane.smith@example.com', '0987654321')
+(3, 'Bob Johnson', 'bob.johnson@example.com', '1122334455')
+(4, 'Alice Brown', 'alice.brown@example.com', '5566778899')
+(5, 'Tom White', 'tom.white@example.com', '6677889900')
+
+Hotels:
+id, name, location
+(1, 'Grand Hotel', 'New York')
+(2, 'Sea View Inn', 'Miami')
+(3, 'Mountain Retreat', 'Denver')
+
+Rooms:
+id, hotel_id, room_number, location, price, available, facilities
+(1, 1, 101, 'Floor 1', 120.0, 1, 'WiFi, TV, AC')
+(2, 1, 202, 'Floor 2', 140.0, 1, 'WiFi, TV, AC')
+(3, 1, 303, 'Floor 3', 160.0, 1, 'WiFi, TV, AC')
+(4, 1, 404, 'Floor 4', 180.0, 1, 'WiFi, TV, AC')
+(5, 1, 505, 'Floor 5', 200.0, 1, 'WiFi, TV, AC')
+(6, 2, 101, 'Floor 1', 120.0, 1, 'WiFi, TV, AC')
+(7, 2, 202, 'Floor 2', 140.0, 1, 'WiFi, TV, AC')
+(8, 2, 303, 'Floor 3', 160.0, 1, 'WiFi, TV, AC')
+(9, 2, 404, 'Floor 4', 180.0, 1, 'WiFi, TV, AC')
+(10, 2, 505, 'Floor 5', 200.0, 1, 'WiFi, TV, AC')
+(11, 3, 101, 'Floor 1', 120.0, 1, 'WiFi, TV, AC')
+(12, 3, 202, 'Floor 2', 140.0, 1, 'WiFi, TV, AC')
+(13, 3, 303, 'Floor 3', 160.0, 1, 'WiFi, TV, AC')
+(14, 3, 404, 'Floor 4', 180.0, 1, 'WiFi, TV, AC')
+(15, 3, 505, 'Floor 5', 200.0, 1, 'WiFi, TV, AC')
+
+Bookings:
+id, client_id, hotel_id, booking_date, status
+(1, 2, 1, '2025-03-27', 'Confirmed')
+(2, 2, 2, '2025-03-27', 'Pending')
+(3, 3, 3, '2025-03-27', 'Confirmed')
+(4, 3, 4, '2025-03-27', 'Pending')
+(5, 1, 5, '2025-03-27', 'Confirmed')
+(6, 1, 6, '2025-03-27', 'Pending')
+(7, 4, 7, '2025-03-27', 'Confirmed')
+(8, 4, 8, '2025-03-27', 'Pending')
+(9, 5, 9, '2025-03-27', 'Confirmed')
+(10, 5, 10, '2025-03-27', 'Pending')

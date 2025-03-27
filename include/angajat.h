@@ -1,4 +1,0 @@
-#ifndef _CLIENTSERVER_ANGAJAT_H_
-#define _CLIENTSERVER_ANGAJAT_H_
-
-#endif

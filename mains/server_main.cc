@@ -1,10 +1,9 @@
-#include "./include/server.h"
-#include <iostream>
+#include "../include/server.h"
 
 int main()
 {
 	Server server(8080);
-	server.ConnectToSQL("../Hotels.db");
+	server.ConnectToSQL("../database/Hotels.db");
 	server.CreateSocket();
 	server.BindServer();
 	server.ListenServer();

@@ -1,10 +1,9 @@
-#ifndef _CLIENTSERVER_SERVER_H_
-#define _CLIENTSERVER_SERVER_H_
+#ifndef SERVER_H_
+#define SERVER_H_
 
 #include <netinet/in.h>
 #include <thread>
 #include <vector>
-#include <fstream>
 #include <sqlite3.h>
 #include "message.h"
 

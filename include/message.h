@@ -1,5 +1,5 @@
-#ifndef _CLIENTSERVER_MESSAGE_H_
-#define _CLIENTSERVER_MESSAGE_H_
+#ifndef MESSAGE_H_
+#define MESSAGE_H_
 
 #include <string>
 #include <boost/serialization/base_object.hpp>
@@ -10,9 +10,9 @@ public:
 	Message() = default;
 	Message(int sender, std::string text, std::string date)
 		: text_(text), sender_(sender), date_(date) {}
-	inline std::string getText() { return text_; }
-	inline int getSender() { return sender_; }
-	inline std::string getDate() { return date_; }
+	inline std::string GetText() { return text_; }
+	inline int GetSender() { return sender_; }
+	inline std::string GetDate() { return date_; }
 
 	friend class boost::serialization::access;
 	template <class Archive>

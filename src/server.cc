@@ -1,12 +1,25 @@
-#include <sstream>
-#include <boost/serialization/string.hpp>
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/archive/text_oarchive.hpp>
+#include <fstream>
+
+
 #include "../include/server.h"
 #include "../include/message.h"
-#include <iostream>
 
-std::ofstream Server::log_("../logs.txt", std::fstream::out | std::fstream::app);
+std::string GetTodaysDate() {
+    auto now = std::chrono::system_clock::now();
+    
+    std::time_t now_c = std::chrono::system_clock::to_time_t(now);
+    
+    std::tm now_tm = *std::localtime(&now_c);
+    
+    std::ostringstream oss;
+    oss << std::put_time(&now_tm, "%Y-%m-%d");
+
+    return oss.str();
+}
+
+std::ofstream Server::log_("../misc/logs.txt", std::fstream::out | std::fstream::app);
 sqlite3* Server::db = nullptr;
 
 Server::~Server()
@@ -31,7 +44,7 @@ void Server::CreateSocket()
 	}
 
 	int opt = 1;
-	if (setsockopt(server_info_, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT,
+	if (setsockopt(server_info_, SOL_SOCKET, SO_REUSEADDR,
 				   &opt, sizeof(opt)))
 	{
 		perror("ERROR WHILE SETTING THE OPTION!\n");
@@ -62,7 +75,6 @@ void Server::ListenServer()
 
 void Server::SendResponse(int socket, const Message& message)
 {
-
     std::stringstream ss;
     boost::archive::text_oarchive oa(ss);
     oa << message;  
@@ -90,14 +102,14 @@ void Server::HandleClient(int socket)
 	std::stringstream ss(serialized_msg);
 	boost::archive::text_iarchive ia(ss);
 	ia >> message;
-	log_ <<"Client id: " << message.getSender() << " Date: " << message.getDate() << std::endl;
+	log_ <<"Client id: " << message.GetSender() << " Date: " << message.GetDate() << std::endl;
 	
 	Message sql_response;
-	ExecuteSQLCommand(message.getText().c_str(), sql_response);
+	ExecuteSQLCommand(message.GetText().c_str(), sql_response);
     SendResponse(socket, sql_response);
 	
-	Message response_message(100, "SQL command executed successfully!", "2025-03-02");
-	log_ <<"Server id: " << response_message.getSender() << " " << response_message.getText() << " Date: " << response_message.getDate() << std::endl;
+	Message response_message(100, "SQL command executed successfully!", GetTodaysDate());
+	log_ <<"Server id: " << response_message.GetSender() << " " << response_message.GetText() << " Date: " << response_message.GetDate() << std::endl;
 	close(socket);
 }
 
@@ -160,6 +172,6 @@ void Server::ExecuteSQLCommand(const char* command, Message& message)
 	{
 		data = "No data found";
 	}
-	Message response_message(100, data, "2025-03-02");
+	Message response_message(100, data, GetTodaysDate());
 	message = response_message;
 }
