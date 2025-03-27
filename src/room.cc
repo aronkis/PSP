@@ -1,4 +1,5 @@
 #include "../include/room.h"
+#include <algorithm>
 
 bool Room::MatchesFilter(const std::string& location, bool availability, double max_price, 
                          const std::vector<std::string>& required_facilities) const 

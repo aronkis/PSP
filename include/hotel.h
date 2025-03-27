@@ -4,6 +4,8 @@
 #include <vector>
 #include "connection.h"
 #include "room.h"
+#include <format>
+
 
 class Hotel
 {

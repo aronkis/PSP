@@ -5,6 +5,7 @@
 #include <string>
 #include "message.h"
 #include "connection.h"
+#include <stdexcept>
 
 class User {
 
