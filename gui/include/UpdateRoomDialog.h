@@ -2,10 +2,13 @@
 #define UPDATEROOMDIALOG_H
 
 #include <QDialog>
-
-namespace Ui {
-class UpdateRoomDialog;
-}
+#include <QPushButton>
+#include <QLineEdit>
+#include <QLabel>
+#include <QComboBox>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QMainWindow>
 
 class UpdateRoomDialog : public QDialog
 {
@@ -16,10 +19,16 @@ public:
     ~UpdateRoomDialog();
 
 private slots:
-    void onUpdateRoomClicked();
+    void onUpdateRoomButtonClicked();
 
 private:
-    Ui::UpdateRoomDialog *ui;
+    QLineEdit *hotelNameLineEdit;
+    QLineEdit *roomNumberLineEdit;
+    QComboBox *roomAvailableComboBox;
+    QLineEdit *priceLineEdit;
+    QLineEdit *facilitiesLineEdit;
+    QPushButton *updateRoomButton;
+    QPushButton *cancelButton;
 };
 
 #endif // UPDATEROOMDIALOG_H

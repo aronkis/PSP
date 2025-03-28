@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ClientGUI</class>
- <widget class="QMainWindow" name="ClientGUI">
+ <class>ReadRoomGUI</class>
+ <widget class="QMainWindow" name="ReadRoomGUI">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,49 +23,22 @@
     
     <!-- Input for Location -->
     <item>
-     <widget class="QLineEdit" name="roomLocationInput">
+     <widget class="QLineEdit" name="roomNumberInput">
       <property name="placeholderText">
-       <string>Enter Room Location</string>
+       <string>Enter Room Number</string>
       </property>
      </widget>
     </item>
-    
-    <!-- Input for Price -->
-    <item>
-     <widget class="QLineEdit" name="roomPriceInput">
-      <property name="placeholderText">
-       <string>Enter Price</string>
-      </property>
-     </widget>
-    </item>
-    
-    <!-- Input for Availability -->
-    <item>
-     <widget class="QLineEdit" name="roomAvailabilityInput">
-      <property name="placeholderText">
-       <string>Enter Availability (Yes/No)</string>
-      </property>
-     </widget>
-    </item>
-    
-    <!-- Input for Facilities -->
-    <item>
-     <widget class="QLineEdit" name="roomFacilitiesInput">
-      <property name="placeholderText">
-       <string>Enter Facilities (comma-separated)</string>
-      </property>
-     </widget>
-    </item>
-    
+
     <!-- Send Button -->
     <item>
-     <widget class="QPushButton" name="sendButton">
+     <widget class="QPushButton" name="readRoomButton">
       <property name="text">
        <string>Send</string>
       </property>
      </widget>
     </item>
-    
+
     <!-- Output Fields (QLabels) -->
     <item>
      <widget class="QLabel" name="roomIdLabel">

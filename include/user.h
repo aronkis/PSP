@@ -10,21 +10,18 @@
 class User {
 
 public:
+	User() {}
+	User(const std::string& username, const std::string& password) 
+		: username_(username), password_(password) {}
 
-User(int id, const std::string& username, const std::string& email, 
-	const std::string& password) : id_(id), username_(username), 
-	email_(email), password_(password) 
-	{
-		Login();
-		if (!logged_in_)
-		{
-			throw std::invalid_argument("Wrong username or password\n");
-		}
-	}
+	User(int id, const std::string& username, const std::string& email, 
+		const std::string& password) : id_(id), username_(username), 
+		email_(email), password_(password) {}
 
 	virtual ~User() = default;
 
 	virtual int GetId() const { return id_; }
+	virtual bool GetLoggedIn() const { return logged_in_; }
 	virtual std::string GetEmail() const { return email_; }
 	virtual std::string GetUsername() const { return username_; }
 	virtual std::string GetPassword() const { return password_; }
@@ -35,7 +32,7 @@ User(int id, const std::string& username, const std::string& email,
 	virtual void SetPassword(std::string password) {  password_ = password; }
 
 	void Login();
-	void Logout() { logged_in_ = false;  exit(0); }
+	void Logout() { logged_in_ = false; }
 
 protected:
     int id_;

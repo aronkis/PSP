@@ -23,8 +23,6 @@ private slots:
 
 private:
     Ui::ClientGUI *ui;
-    QString storedText;
-    int temp = 0;
 };
 
 #endif

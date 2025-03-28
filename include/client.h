@@ -27,12 +27,6 @@ private:
     std::string email_;
     std::string phone_number_;
     std::vector<Room> booked_rooms_;
-    Connection connection_;
-
-    void ConnectToServer();
-    void SendMessage(const Message& message);
-    void ReceiveMessage(std::string* response);
-    std::string GetResponse(std::string command);
 };
 
 #endif

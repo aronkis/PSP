@@ -6,6 +6,9 @@
 
 class Employee : public User {
 public:
+    Employee() {};
+    Employee(const std::string& username, const std::string& password) 
+        : User(username, password) {}
     Employee(int id, const std::string& username, const std::string& email, 
             const std::string& password) : User(id, username, email, password) {}
     void CreateRoom(std::string hotel_name, Room room);

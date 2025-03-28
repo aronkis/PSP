@@ -2,10 +2,13 @@
 #define DELETEROOMDIALOG_H
 
 #include <QDialog>
-
-namespace Ui {
-class DeleteRoomDialog;
-}
+#include <QPushButton>
+#include <QLineEdit>
+#include <QLabel>
+#include <QComboBox>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QMainWindow>
 
 class DeleteRoomDialog : public QDialog
 {
@@ -16,10 +19,13 @@ public:
     ~DeleteRoomDialog();
 
 private slots:
-    void onDeleteRoomClicked();
+    void onDeleteRoomButtonClicked();
 
 private:
-    Ui::DeleteRoomDialog *ui;
+    QLineEdit *hotelNameLineEdit;
+    QLineEdit *roomNumberLineEdit;
+    QPushButton *deleteRoomButton;
+    QPushButton *cancelButton;
 };
 
 #endif // DELETEROOMDIALOG_H

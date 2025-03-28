@@ -6,9 +6,7 @@
 #include <QLineEdit>
 #include <QLabel>
 #include "CreateRoomDialog.h"
-// #include "readroomdialog.h"
-// #include "updateroomdialog.h"
-// #include "deleteroomdialog.h"
+#include "../../include/employee.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {class EmployeeGUI;}
@@ -21,14 +19,18 @@ class EmployeeGUI : public QMainWindow
 public:
     EmployeeGUI(QWidget *parent = nullptr);
     ~EmployeeGUI();
+    void setEmployee(Employee employee) { employee_ = employee; }
 
 private slots:
+    void openLogInDialog();
     void openCreateRoomDialog();
-    // void openReadRoomDialog();
-    // void openUpdateRoomDialog();
-    // void openDeleteRoomDialog();
+    void openReadRoomDialog();
+    void openUpdateRoomDialog();
+    void openDeleteRoomDialog();
+    void LogOutDialog();
 
 private:
     Ui::EmployeeGUI *ui;
+    Employee employee_;
 };
 #endif

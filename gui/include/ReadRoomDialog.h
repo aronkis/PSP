@@ -2,24 +2,37 @@
 #define READROOMDIALOG_H
 
 #include <QDialog>
-
-namespace Ui {
-class ReadRoomDialog;
-}
+#include <QPushButton>
+#include <QLineEdit>
+#include <QLabel>
+#include <QComboBox>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QMainWindow>
 
 class ReadRoomDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit ReadRoomDialog(QWidget *parent = nullptr);
+    ReadRoomDialog(QWidget *parent = nullptr);
     ~ReadRoomDialog();
 
 private slots:
     void onReadRoomClicked();
 
 private:
-    Ui::ReadRoomDialog *ui;
+    QLineEdit *hotelNameLineEdit;
+    QLineEdit *roomNumberLineEdit;
+    QPushButton *readRoomButton;
+    QPushButton *cancelButton;
+
+    QLabel *roomIdLabel;
+    QLabel *roomNumberLabel;
+    QLabel *roomLocationLabel;
+    QLabel *roomPriceLabel;
+    QLabel *roomAvailabilityLabel;
+    QLabel *roomFacilitiesLabel;
 };
 
 #endif // READROOMDIALOG_H

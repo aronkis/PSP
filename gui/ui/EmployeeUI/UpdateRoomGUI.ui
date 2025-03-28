@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ClientGUI</class>
- <widget class="QMainWindow" name="ClientGUI">
+ <class>UpdateRoomDialog</class>
+ <widget class="QMainWindow" name="UpdateRoomDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
-    <!-- Input for HotelName -->
+   
+    <!-- Input for hotel Name -->
     <item>
      <widget class="QLineEdit" name="hotelNameInput">
       <property name="placeholderText">
@@ -21,11 +22,11 @@
      </widget>
     </item>
     
-    <!-- Input for Location -->
+    <!-- Input for room number -->
     <item>
-     <widget class="QLineEdit" name="roomLocationInput">
+     <widget class="QLineEdit" name="roomNumberInput">
       <property name="placeholderText">
-       <string>Enter Room Location</string>
+       <string>Enter room number</string>
       </property>
      </widget>
     </item>
@@ -59,56 +60,13 @@
     
     <!-- Send Button -->
     <item>
-     <widget class="QPushButton" name="sendButton">
+     <widget class="QPushButton" name="updateRoomButton">
       <property name="text">
        <string>Send</string>
       </property>
      </widget>
     </item>
-    
-    <!-- Output Fields (QLabels) -->
-    <item>
-     <widget class="QLabel" name="roomIdLabel">
-      <property name="text">
-       <string>Room ID: </string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="roomNumberLabel">
-      <property name="text">
-       <string>Number: </string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="roomLocationLabel">
-      <property name="text">
-       <string>Location: </string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="roomPriceLabel">
-      <property name="text">
-       <string>Price: </string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="roomAvailabilityLabel">
-      <property name="text">
-       <string>Available: </string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="roomFacilitiesLabel">
-      <property name="text">
-       <string>Facilities: </string>
-      </property>
-     </widget>
-    </item>
+
    </layout>
   </widget>
  </widget>

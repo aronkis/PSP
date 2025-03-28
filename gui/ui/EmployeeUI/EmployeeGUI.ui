@@ -12,6 +12,13 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+     <widget class="QPushButton" name="logInButton">
+      <property name="text">
+       <string>Log In</string>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="QPushButton" name="createRoomButton">
       <property name="text">
@@ -37,6 +44,13 @@
      <widget class="QPushButton" name="deleteRoomButton">
       <property name="text">
        <string>Delete Room</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="logOutButton">
+      <property name="text">
+       <string>Log Out</string>
       </property>
      </widget>
     </item>

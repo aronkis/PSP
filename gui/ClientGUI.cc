@@ -22,7 +22,7 @@ ClientGUI::~ClientGUI()
 
 void ClientGUI::OnSendButtonClicked()
 {
-    QString hotel_name = ui->hotelName->text();
+    QString hotel_name = ui->hotelNameInput->text();
     QString roomLocation = ui->roomLocationInput->text();
     QString roomPrice = ui->roomPriceInput->text();
     QString roomAvailability = ui->roomAvailabilityInput->text();
