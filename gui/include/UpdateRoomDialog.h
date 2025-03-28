@@ -1,5 +1,5 @@
-#ifndef UPDATEROOMDIALOG_H
-#define UPDATEROOMDIALOG_H
+#ifndef UPDATE_ROOM_DIALOG_H
+#define UPDATE_ROOM_DIALOG_H
 
 #include <QDialog>
 #include <QPushButton>
@@ -15,20 +15,20 @@ class UpdateRoomDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit UpdateRoomDialog(QWidget *parent = nullptr);
+    UpdateRoomDialog(QWidget *parent = nullptr);
     ~UpdateRoomDialog();
 
 private slots:
-    void onUpdateRoomButtonClicked();
+    void OnUpdateRoomButtonClicked();
 
 private:
-    QLineEdit *hotelNameLineEdit;
-    QLineEdit *roomNumberLineEdit;
-    QComboBox *roomAvailableComboBox;
-    QLineEdit *priceLineEdit;
-    QLineEdit *facilitiesLineEdit;
-    QPushButton *updateRoomButton;
-    QPushButton *cancelButton;
+    QLineEdit *hotel_name_line_edit_;
+    QLineEdit *room_number_line_edit_;
+    QComboBox *room_available_combo_box_;
+    QLineEdit *price_line_edit_;
+    QLineEdit *facilities_line_edit_;
+    QPushButton *update_room_button_;
+    QPushButton *cancel_button_;
 };
 
 #endif // UPDATEROOMDIALOG_H

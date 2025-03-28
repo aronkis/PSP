@@ -3,6 +3,8 @@ project(ClientServer)
 
 cmake_policy(SET CMP0167 NEW)
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
 
 find_package(Boost REQUIRED COMPONENTS serialization)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
@@ -10,8 +12,7 @@ find_package(SQLite3 REQUIRED)
 
 include_directories(${Boost_INCLUDE_DIRS})
 include_directories(${SQLite3_INCLUDE_DIRS})
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTOUIC ON)
+include_directories(${Qt6_INCLUDE_DIRS})
 
 add_executable(ClientPresenter 
                mains/clientPresenter.cc
@@ -70,5 +71,3 @@ target_link_libraries(server_main ${SQLite3_LIBRARIES})
 target_link_libraries(EmployeePresenter ${SQLite3_LIBRARIES})
 target_link_libraries(ClientPresenter Qt6::Widgets)
 target_link_libraries(EmployeePresenter Qt6::Widgets)
-
-# qt5_add_resources(RESOURCES resources.qrc)

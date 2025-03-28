@@ -1,8 +1,6 @@
 #include "../include/client.h"
 #include "../include/message.h"
 
-#include <sstream>
-
 std::vector<Room> Client::FilterRooms(const std::string &hotel_name, const std::string &location,
                                       bool availability, double max_price,
                                       const std::vector<std::string> &required_facilities)

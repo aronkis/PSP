@@ -1,66 +1,57 @@
-#include "include/UpdateRoomDialog.h"
-#include <iostream>
 #include <QMessageBox>
+
+#include "include/UpdateRoomDialog.h"
+
 #include "../include/employee.h"
 #include "../include/room.h"
 
 UpdateRoomDialog::UpdateRoomDialog(QWidget *parent) : QDialog(parent)
 {
-    // Create the widgets
-    hotelNameLineEdit = new QLineEdit(this);
-    roomNumberLineEdit = new QLineEdit(this);
-    priceLineEdit = new QLineEdit(this);
-    roomAvailableComboBox = new QComboBox(this);
-    facilitiesLineEdit = new QLineEdit(this);
-    updateRoomButton = new QPushButton("Update Room", this);
-    cancelButton = new QPushButton("Cancel", this);
+    hotel_name_line_edit_ = new QLineEdit(this);
+    room_number_line_edit_ = new QLineEdit(this);
+    price_line_edit_ = new QLineEdit(this);
+    room_available_combo_box_ = new QComboBox(this);
+    facilities_line_edit_ = new QLineEdit(this);
+    update_room_button_ = new QPushButton("Update Room", this);
+    cancel_button_ = new QPushButton("Cancel", this);
 
-    // Set up the room type combo box with some example room types
-    roomAvailableComboBox->addItem("Yes");
-    roomAvailableComboBox->addItem("No");
+    room_available_combo_box_->addItem("Yes");
+    room_available_combo_box_->addItem("No");
 
-    // Layout setup
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    // Hotel Name
     QHBoxLayout *hotelNameLayout = new QHBoxLayout();
     hotelNameLayout->addWidget(new QLabel("Hotel Name:", this));
-    hotelNameLayout->addWidget(hotelNameLineEdit);
+    hotelNameLayout->addWidget(hotel_name_line_edit_);
     mainLayout->addLayout(hotelNameLayout);
 
-    // Room Number
     QHBoxLayout *roomNumberLayout = new QHBoxLayout();
     roomNumberLayout->addWidget(new QLabel("Room Number:", this));
-    roomNumberLayout->addWidget(roomNumberLineEdit);
+    roomNumberLayout->addWidget(room_number_line_edit_);
     mainLayout->addLayout(roomNumberLayout);
 
-    // Price
     QHBoxLayout *priceLayout = new QHBoxLayout();
     priceLayout->addWidget(new QLabel("Price:", this));
-    priceLayout->addWidget(priceLineEdit);
+    priceLayout->addWidget(price_line_edit_);
     mainLayout->addLayout(priceLayout);
 
-    // Room Available
     QHBoxLayout *roomTypeLayout = new QHBoxLayout();
     roomTypeLayout->addWidget(new QLabel("Available:", this));
-    roomTypeLayout->addWidget(roomAvailableComboBox);
+    roomTypeLayout->addWidget(room_available_combo_box_);
     mainLayout->addLayout(roomTypeLayout);
 
-    // Facilities
     QHBoxLayout *facilitiesLayout = new QHBoxLayout();
     facilitiesLayout->addWidget(new QLabel("Facilities:", this));
-    facilitiesLayout->addWidget(facilitiesLineEdit);
+    facilitiesLayout->addWidget(facilities_line_edit_);
     mainLayout->addLayout(facilitiesLayout);
 
-    // Buttons
     QHBoxLayout *buttonLayout = new QHBoxLayout();
-    buttonLayout->addWidget(updateRoomButton);
-    buttonLayout->addWidget(cancelButton);
+    buttonLayout->addWidget(update_room_button_);
+    buttonLayout->addWidget(cancel_button_);
     mainLayout->addLayout(buttonLayout);
 
-    // Connect signals and slots
-    connect(updateRoomButton, &QPushButton::clicked, this, &UpdateRoomDialog::onUpdateRoomButtonClicked);
-    connect(cancelButton, &QPushButton::clicked, this, &UpdateRoomDialog::reject);
+    connect(update_room_button_, &QPushButton::clicked, this, &UpdateRoomDialog::OnUpdateRoomButtonClicked);
+    connect(cancel_button_, &QPushButton::clicked, this, &UpdateRoomDialog::reject);
 
     setLayout(mainLayout);
     setWindowTitle("Update Room");
@@ -68,19 +59,17 @@ UpdateRoomDialog::UpdateRoomDialog(QWidget *parent) : QDialog(parent)
 
 UpdateRoomDialog::~UpdateRoomDialog()
 {
-    // Cleanup if necessary (currently handled by Qt's parent-child system)
 }
 
-void UpdateRoomDialog::onUpdateRoomButtonClicked()
+void UpdateRoomDialog::OnUpdateRoomButtonClicked()
 {
-    // Validate inputs
     bool valid = true;
-    QString hotelName = hotelNameLineEdit->text();
-    QString roomNumber = roomNumberLineEdit->text();
-    QString roomAvailable = roomAvailableComboBox->currentText();
-    QString priceText = priceLineEdit->text();
+    QString hotelName = hotel_name_line_edit_->text();
+    QString roomNumber = room_number_line_edit_->text();
+    QString roomAvailable = room_available_combo_box_->currentText();
+    QString priceText = price_line_edit_->text();
     double price;
-    QString facilities = facilitiesLineEdit->text();
+    QString facilities = facilities_line_edit_->text();
 
     if (hotelName.isEmpty()) {
         QMessageBox::warning(this, "Input Error", "Hotel name cannot be empty!");

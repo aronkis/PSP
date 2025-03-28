@@ -1,7 +1,6 @@
 #include "../include/user.h"
 #include <sstream>
 #include <format>
-#include <iostream>
 
 void User::Login()
 {

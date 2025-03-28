@@ -1,82 +1,72 @@
-#include "include/CreateRoomDialog.h"
-#include <iostream>
 #include <QMessageBox>
+
+#include "include/CreateRoomDialog.h"
+
 #include "../include/employee.h"
 #include "../include/room.h"
 
 CreateRoomDialog::CreateRoomDialog(QWidget *parent) : QDialog(parent)
 {
-    // Create the widgets
-    hotelNameLineEdit = new QLineEdit(this);
-    roomFloorComboBox = new QComboBox(this);
-    roomNumberLineEdit = new QLineEdit(this);
-    priceLineEdit = new QLineEdit(this);
-    roomAvailableComboBox = new QComboBox(this);
-    facilitiesLineEdit = new QLineEdit(this);
-    createRoomButton = new QPushButton("Create Room", this);
-    cancelButton = new QPushButton("Cancel", this);
+    hotel_name_line_edit_ = new QLineEdit(this);
+    room_floor_combo_box_ = new QComboBox(this);
+    room_number_line_edit_ = new QLineEdit(this);
+    price_line_edit_ = new QLineEdit(this);
+    room_available_combo_box_ = new QComboBox(this);
+    facilities_line_edit_ = new QLineEdit(this);
+    create_room_button_ = new QPushButton("Create Room", this);
+    cancel_button_ = new QPushButton("Cancel", this);
 
-    // Set up the room type combo box with some example room types
-    roomAvailableComboBox->addItem("Yes");
-    roomAvailableComboBox->addItem("No");
+    room_available_combo_box_->addItem("Yes");
+    room_available_combo_box_->addItem("No");
 
-    roomFloorComboBox->addItem("Floor 1");
-    roomFloorComboBox->addItem("Floor 2");
-    roomFloorComboBox->addItem("Floor 3");
-    roomFloorComboBox->addItem("Floor 4");
-    roomFloorComboBox->addItem("Floor 5");
-    roomFloorComboBox->addItem("Floor 6");
-    roomFloorComboBox->addItem("Floor 7");
-    roomFloorComboBox->addItem("Floor 8");
+    room_floor_combo_box_->addItem("Floor 1");
+    room_floor_combo_box_->addItem("Floor 2");
+    room_floor_combo_box_->addItem("Floor 3");
+    room_floor_combo_box_->addItem("Floor 4");
+    room_floor_combo_box_->addItem("Floor 5");
+    room_floor_combo_box_->addItem("Floor 6");
+    room_floor_combo_box_->addItem("Floor 7");
+    room_floor_combo_box_->addItem("Floor 8");
 
-    // Layout setup
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    // Hotel Name
     QHBoxLayout *hotelNameLayout = new QHBoxLayout();
     hotelNameLayout->addWidget(new QLabel("Hotel Name:", this));
-    hotelNameLayout->addWidget(hotelNameLineEdit);
+    hotelNameLayout->addWidget(hotel_name_line_edit_);
     mainLayout->addLayout(hotelNameLayout);
 
-    // Room Floor
     QHBoxLayout *roomFloorLayout = new QHBoxLayout();
     roomFloorLayout->addWidget(new QLabel("Location:", this));
-    roomFloorLayout->addWidget(roomFloorComboBox);
+    roomFloorLayout->addWidget(room_floor_combo_box_);
     mainLayout->addLayout(roomFloorLayout);
 
-    // Room Number
     QHBoxLayout *roomNumberLayout = new QHBoxLayout();
     roomNumberLayout->addWidget(new QLabel("Room Number:", this));
-    roomNumberLayout->addWidget(roomNumberLineEdit);
+    roomNumberLayout->addWidget(room_number_line_edit_);
     mainLayout->addLayout(roomNumberLayout);
 
-    // Price
     QHBoxLayout *priceLayout = new QHBoxLayout();
     priceLayout->addWidget(new QLabel("Price:", this));
-    priceLayout->addWidget(priceLineEdit);
+    priceLayout->addWidget(price_line_edit_);
     mainLayout->addLayout(priceLayout);
 
-    // Room Available
     QHBoxLayout *roomTypeLayout = new QHBoxLayout();
     roomTypeLayout->addWidget(new QLabel("Available:", this));
-    roomTypeLayout->addWidget(roomAvailableComboBox);
+    roomTypeLayout->addWidget(room_available_combo_box_);
     mainLayout->addLayout(roomTypeLayout);
 
-    // Facilities
     QHBoxLayout *facilitiesLayout = new QHBoxLayout();
     facilitiesLayout->addWidget(new QLabel("Facilities:", this));
-    facilitiesLayout->addWidget(facilitiesLineEdit);
+    facilitiesLayout->addWidget(facilities_line_edit_);
     mainLayout->addLayout(facilitiesLayout);
 
-    // Buttons
     QHBoxLayout *buttonLayout = new QHBoxLayout();
-    buttonLayout->addWidget(createRoomButton);
-    buttonLayout->addWidget(cancelButton);
+    buttonLayout->addWidget(create_room_button_);
+    buttonLayout->addWidget(cancel_button_);
     mainLayout->addLayout(buttonLayout);
 
-    // Connect signals and slots
-    connect(createRoomButton, &QPushButton::clicked, this, &CreateRoomDialog::onCreateRoomButtonClicked);
-    connect(cancelButton, &QPushButton::clicked, this, &CreateRoomDialog::reject);
+    connect(create_room_button_, &QPushButton::clicked, this, &CreateRoomDialog::OnCreateRoomButtonClicked);
+    connect(cancel_button_, &QPushButton::clicked, this, &CreateRoomDialog::reject);
 
     setLayout(mainLayout);
     setWindowTitle("Create Room");
@@ -84,20 +74,18 @@ CreateRoomDialog::CreateRoomDialog(QWidget *parent) : QDialog(parent)
 
 CreateRoomDialog::~CreateRoomDialog()
 {
-    // Cleanup if necessary (currently handled by Qt's parent-child system)
 }
 
-void CreateRoomDialog::onCreateRoomButtonClicked()
+void CreateRoomDialog::OnCreateRoomButtonClicked()
 {
-    // Validate inputs
     bool valid = true;
-    QString hotelName = hotelNameLineEdit->text();
-    QString roomFloor = roomAvailableComboBox->currentText();
-    QString roomNumber = roomNumberLineEdit->text();
-    QString roomAvailable = roomAvailableComboBox->currentText();
-    QString priceText = priceLineEdit->text();
+    QString hotelName = hotel_name_line_edit_->text();
+    QString roomFloor = room_available_combo_box_->currentText();
+    QString roomNumber = room_number_line_edit_->text();
+    QString roomAvailable = room_available_combo_box_->currentText();
+    QString priceText = price_line_edit_->text();
     double price = priceText.toDouble();
-    QString facilities = facilitiesLineEdit->text();
+    QString facilities = facilities_line_edit_->text();
 
     if (hotelName.isEmpty()) {
         QMessageBox::warning(this, "Input Error", "Hotel name cannot be empty!");

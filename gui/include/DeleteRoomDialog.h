@@ -1,5 +1,5 @@
-#ifndef DELETEROOMDIALOG_H
-#define DELETEROOMDIALOG_H
+#ifndef DELETE_ROOM_DIALOG_H
+#define DELETE_ROOM_DIALOG_H
 
 #include <QDialog>
 #include <QPushButton>
@@ -15,17 +15,17 @@ class DeleteRoomDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit DeleteRoomDialog(QWidget *parent = nullptr);
+    DeleteRoomDialog(QWidget *parent = nullptr);
     ~DeleteRoomDialog();
 
 private slots:
-    void onDeleteRoomButtonClicked();
+    void OnDeleteRoomButtonClicked();
 
 private:
-    QLineEdit *hotelNameLineEdit;
-    QLineEdit *roomNumberLineEdit;
-    QPushButton *deleteRoomButton;
-    QPushButton *cancelButton;
+    QLineEdit *hotel_name_line_edit_;
+    QLineEdit *room_number_line_edit_;
+    QPushButton *delete_room_button_;
+    QPushButton *cancel_button_;
 };
 
 #endif // DELETEROOMDIALOG_H

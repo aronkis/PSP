@@ -1,117 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ClientGUI</class>
- <widget class="QMainWindow" name="ClientGUI">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>400</width>
-    <height>300</height>
-   </rect>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <!-- Input for HotelName -->
-    <item>
-     <widget class="QLineEdit" name="hotelNameInput">
-      <property name="placeholderText">
-       <string>Enter hotel name</string>
-      </property>
-     </widget>
-    </item>
-    
-    <!-- Input for Location -->
-    <item>
-     <widget class="QLineEdit" name="roomLocationInput">
-      <property name="placeholderText">
-       <string>Enter Room Location</string>
-      </property>
-     </widget>
-    </item>
-    
-    <!-- Input for Price -->
-    <item>
-     <widget class="QLineEdit" name="roomPriceInput">
-      <property name="placeholderText">
-       <string>Enter Price</string>
-      </property>
-     </widget>
-    </item>
-    
-    <!-- Input for Availability -->
-    <item>
-     <widget class="QLineEdit" name="roomAvailabilityInput">
-      <property name="placeholderText">
-       <string>Enter Availability (Yes/No)</string>
-      </property>
-     </widget>
-    </item>
-    
-    <!-- Input for Facilities -->
-    <item>
-     <widget class="QLineEdit" name="roomFacilitiesInput">
-      <property name="placeholderText">
-       <string>Enter Facilities (comma-separated)</string>
-      </property>
-     </widget>
-    </item>
-    
-    <!-- Send Button -->
-    <item>
-     <widget class="QPushButton" name="sendButton">
-      <property name="text">
-       <string>Send</string>
-      </property>
-     </widget>
-    </item>
-    
-    <!-- Output Fields (QLabels) -->
-    <item>
-     <widget class="QLabel" name="roomIdLabel">
-      <property name="text">
-       <string>Room ID: </string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="roomNumberLabel">
-      <property name="text">
-       <string>Number: </string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="roomLocationLabel">
-      <property name="text">
-       <string>Location: </string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="roomPriceLabel">
-      <property name="text">
-       <string>Price: </string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="roomAvailabilityLabel">
-      <property name="text">
-       <string>Available: </string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="roomFacilitiesLabel">
-      <property name="text">
-       <string>Facilities: </string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
- </widget>
- <resources/>
- <connections/>
+	<class>ClientGUI</class>
+	<widget class="QMainWindow" name="ClientGUI">
+		<property name="geometry">
+			<rect>
+				<x>0</x>
+				<y>0</y>
+				<width>400</width>
+				<height>300</height>
+			</rect>
+		</property>
+		<widget class="QWidget" name="centralwidget">
+			<layout class="QVBoxLayout" name="verticalLayout">
+				<item>
+					<widget class="QLineEdit" name="hotelNameInput">
+						<property name="placeholderText">
+							<string>Enter hotel name</string>
+						</property>
+					</widget>
+				</item>
+				<item>
+					<widget class="QLineEdit" name="roomLocationInput">
+						<property name="placeholderText">
+							<string>Enter Room Location</string>
+						</property>
+					</widget>
+				</item>
+				<item>
+					<widget class="QLineEdit" name="roomPriceInput">
+						<property name="placeholderText">
+							<string>Enter Price</string>
+						</property>
+					</widget>
+				</item>
+				<item>
+					<widget class="QLineEdit" name="roomAvailabilityInput">
+						<property name="placeholderText">
+							<string>Enter Availability (Yes/No)</string>
+						</property>
+					</widget>
+				</item>
+				<item>
+					<widget class="QLineEdit" name="roomFacilitiesInput">
+						<property name="placeholderText">
+							<string>Enter Facilities (comma-separated)</string>
+						</property>
+					</widget>
+				</item>
+				<item>
+					<widget class="QPushButton" name="sendButton">
+						<property name="text">
+							<string>Send</string>
+						</property>
+					</widget>
+				</item>
+				<item>
+					<widget class="QLabel" name="room_id_label_">
+						<property name="text">
+							<string>Room ID:</string>
+						</property>
+					</widget>
+				</item>
+				<item>
+					<widget class="QLabel" name="room_number_label_">
+						<property name="text">
+							<string>Number:</string>
+						</property>
+					</widget>
+				</item>
+				<item>
+					<widget class="QLabel" name="room_location_label">
+						<property name="text">
+							<string>Location:</string>
+						</property>
+					</widget>
+				</item>
+				<item>
+					<widget class="QLabel" name="room_price_label">
+						<property name="text">
+							<string>Price:</string>
+						</property>
+					</widget>
+				</item>
+				<item>
+					<widget class="QLabel" name="room_availability_label_">
+						<property name="text">
+							<string>Available:</string>
+						</property>
+					</widget>
+				</item>
+				<item>
+					<widget class="QLabel" name="room_facilities_label_">
+						<property name="text">
+							<string>Facilities:</string>
+						</property>
+					</widget>
+				</item>
+			</layout>
+		</widget>
+	</widget>
+	<resources />
+	<connections />
 </ui>

@@ -1,5 +1,5 @@
-#ifndef READROOMDIALOG_H
-#define READROOMDIALOG_H
+#ifndef READ_ROOM_DIALOG_H
+#define READ_ROOM_DIALOG_H
 
 #include <QDialog>
 #include <QPushButton>
@@ -19,20 +19,20 @@ public:
     ~ReadRoomDialog();
 
 private slots:
-    void onReadRoomClicked();
+    void OnReadRoomButtonClicked();
 
 private:
-    QLineEdit *hotelNameLineEdit;
-    QLineEdit *roomNumberLineEdit;
-    QPushButton *readRoomButton;
-    QPushButton *cancelButton;
+    QLineEdit *hotel_name_line_edit_;
+    QLineEdit *room_number_line_edit_;
+    QPushButton *read_room_button_;
+    QPushButton *cancel_button_;
 
-    QLabel *roomIdLabel;
-    QLabel *roomNumberLabel;
-    QLabel *roomLocationLabel;
-    QLabel *roomPriceLabel;
-    QLabel *roomAvailabilityLabel;
-    QLabel *roomFacilitiesLabel;
+    QLabel *room_id_label_;
+    QLabel *room_number_label_;
+    QLabel *room_location_label;
+    QLabel *room_price_label;
+    QLabel *room_availability_label_;
+    QLabel *room_facilities_label_;
 };
 
 #endif // READROOMDIALOG_H

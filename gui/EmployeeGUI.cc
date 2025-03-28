@@ -1,3 +1,10 @@
+
+#include <QMessageBox>
+#include <QPushButton>
+#include <QLineEdit>
+#include <QLabel>
+#include <QDebug>
+
 #include "include/LogInDialog.h"
 #include "include/EmployeeGUI.h"
 #include "include/CreateRoomDialog.h"
@@ -8,35 +15,29 @@
 #include "ui/EmployeeUI/ui_CreateRoomGUI.h"
 #include "ui/EmployeeUI/ui_ReadRoomGUI.h"
 
-#include <QPushButton>
-#include <QLineEdit>
-#include <QLabel>
-#include <QDebug>
-#include <iostream>
-
 #include "../include/client.h"
 #include "../include/room.h"
 
 EmployeeGUI::EmployeeGUI(QWidget *parent) 
-    : QMainWindow(parent), ui(new Ui::EmployeeGUI)
+    : QMainWindow(parent), ui_(new Ui::EmployeeGUI)
 {
-    ui->setupUi(this);
-    ui->createRoomButton->setVisible(false);
-    ui->readRoomButton->setVisible(false);
-    ui->updateRoomButton->setVisible(false);
-    ui->deleteRoomButton->setVisible(false);
-    ui->logOutButton->setVisible(false);
-    connect(ui->logInButton, &QPushButton::clicked, this, &EmployeeGUI::openLogInDialog);
-    connect(ui->createRoomButton, &QPushButton::clicked, this, &EmployeeGUI::openCreateRoomDialog);
-    connect(ui->readRoomButton, &QPushButton::clicked, this, &EmployeeGUI::openReadRoomDialog);
-    connect(ui->updateRoomButton, &QPushButton::clicked, this, &EmployeeGUI::openUpdateRoomDialog);
-    connect(ui->deleteRoomButton, &QPushButton::clicked, this, &EmployeeGUI::openDeleteRoomDialog);
-    connect(ui->logOutButton, &QPushButton::clicked, this, &EmployeeGUI::LogOutDialog);
+    ui_->setupUi(this);
+    ui_->create_room_button_->setVisible(false);
+    ui_->read_room_button_->setVisible(false);
+    ui_->update_room_button_->setVisible(false);
+    ui_->delete_room_button_->setVisible(false);
+    ui_->logOutButton->setVisible(false);
+    connect(ui_->log_in_button_, &QPushButton::clicked, this, &EmployeeGUI::openLogInDialog);
+    connect(ui_->create_room_button_, &QPushButton::clicked, this, &EmployeeGUI::openCreateRoomDialog);
+    connect(ui_->read_room_button_, &QPushButton::clicked, this, &EmployeeGUI::openReadRoomDialog);
+    connect(ui_->update_room_button_, &QPushButton::clicked, this, &EmployeeGUI::openUpdateRoomDialog);
+    connect(ui_->delete_room_button_, &QPushButton::clicked, this, &EmployeeGUI::openDeleteRoomDialog);
+    connect(ui_->logOutButton, &QPushButton::clicked, this, &EmployeeGUI::LogOutDialog);
 }
 
 EmployeeGUI::~EmployeeGUI()
 {
-    delete ui;
+    delete ui_;
 }
 
 void EmployeeGUI::openLogInDialog()
@@ -44,12 +45,12 @@ void EmployeeGUI::openLogInDialog()
     LogInDialog logInDialog(this, this);  
     if (logInDialog.exec() == QDialog::Accepted) 
     {
-        ui->logInButton->setVisible(false);
-        ui->createRoomButton->setVisible(true);
-        ui->readRoomButton->setVisible(true);
-        ui->updateRoomButton->setVisible(true);
-        ui->deleteRoomButton->setVisible(true);
-        ui->logOutButton->setVisible(true);
+        ui_->log_in_button_->setVisible(false);
+        ui_->create_room_button_->setVisible(true);
+        ui_->read_room_button_->setVisible(true);
+        ui_->update_room_button_->setVisible(true);
+        ui_->delete_room_button_->setVisible(true);
+        ui_->logOutButton->setVisible(true);
     }
     else
     {
@@ -72,7 +73,7 @@ void EmployeeGUI::openCreateRoomDialog()
     }
     else
     {
-        std::cout << "Not logged in\n";
+        QMessageBox::information(this, "Not permitted.", "The user is not authenticated!");
     }
 }
 
@@ -91,7 +92,7 @@ void EmployeeGUI::openReadRoomDialog()
     }
     else
     {
-        std::cout << "Not logged in\n";
+        QMessageBox::information(this, "Not permitted.", "The user is not authenticated!");
     }
 }
 
@@ -110,7 +111,7 @@ void EmployeeGUI::openUpdateRoomDialog()
     }
     else
     {
-        std::cout << "Not logged in\n";
+        QMessageBox::information(this, "Not permitted.", "The user is not authenticated!");
     }
 }
 
@@ -129,16 +130,16 @@ void EmployeeGUI::openDeleteRoomDialog()
     }
     else
     {
-        std::cout << "Not logged in\n";
+        QMessageBox::information(this, "Not permitted.", "The user is not authenticated!");
     }
 }
 void EmployeeGUI::LogOutDialog()
 {
     employee_.Logout();
-    ui->logInButton->setVisible(true);
-    ui->createRoomButton->setVisible(false);
-    ui->readRoomButton->setVisible(false);
-    ui->updateRoomButton->setVisible(false);
-    ui->deleteRoomButton->setVisible(false);
-    ui->logOutButton->setVisible(false);
+    ui_->log_in_button_->setVisible(true);
+    ui_->create_room_button_->setVisible(false);
+    ui_->read_room_button_->setVisible(false);
+    ui_->update_room_button_->setVisible(false);
+    ui_->delete_room_button_->setVisible(false);
+    ui_->logOutButton->setVisible(false);
 }

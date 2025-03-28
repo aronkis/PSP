@@ -1,5 +1,5 @@
-#ifndef LOGINDIALOG_H
-#define LOGINDIALOG_H
+#ifndef LOG_IN_DIALOG_H
+#define LOG_IN_DIALOG_H
 
 #include <QDialog>
 #include <QPushButton>
@@ -21,14 +21,14 @@ public:
     ~LogInDialog();
 
 private slots:
-    void onLogInButtonClicked();
+    void OnLogInButtonClicked();
 
 private:
-    QLineEdit *usernameLineEdit;
-    QLineEdit *passwordLineEdit;
-    QPushButton *logInButton;
-    QPushButton *cancelButton;
-    EmployeeGUI *employeeGUI;
+    QLineEdit *username_line_edit_;
+    QLineEdit *password_line_edit_;
+    QPushButton *log_in_button_;
+    QPushButton *cancel_button_;
+    EmployeeGUI *employeeGUI_;
 };
 
 #endif // DELETEROOMDIALOG_H

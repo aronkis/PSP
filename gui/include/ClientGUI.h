@@ -1,10 +1,10 @@
 #ifndef CLIENT_GUI_H
 #define CLIENT_GUI_H
 
-#include <QMainWindow>
+#include <QLabel>
 #include <QPushButton>
 #include <QLineEdit>
-#include <QLabel>
+#include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ClientGUI; }
@@ -22,7 +22,7 @@ private slots:
     void OnSendButtonClicked();  
 
 private:
-    Ui::ClientGUI *ui;
+    Ui::ClientGUI *ui_;
 };
 
 #endif

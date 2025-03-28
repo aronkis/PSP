@@ -3,7 +3,7 @@
 
 Hotel::Hotel(std::string hotel_name)
 {
-    id_ = 9999;
+    id_ = -1;
     std::string response = GetResponse(std::format("SELECT * FROM hotels WHERE name = '{}'", hotel_name));
     int id;
     std::string name;

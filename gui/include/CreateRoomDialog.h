@@ -1,5 +1,5 @@
-#ifndef CREATEROOMDIALOG_H
-#define CREATEROOMDIALOG_H
+#ifndef CREATE_ROOM_DIALOG_H
+#define CREATE_ROOM_DIALOG_H
 
 #include <QDialog>
 #include <QPushButton>
@@ -15,21 +15,21 @@ class CreateRoomDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit CreateRoomDialog(QWidget *parent = nullptr);
+    CreateRoomDialog(QWidget *parent = nullptr);
     ~CreateRoomDialog();
 
 private slots:
-    void onCreateRoomButtonClicked();
+    void OnCreateRoomButtonClicked();
 
 private:
-    QLineEdit *hotelNameLineEdit;
-    QLineEdit *roomNumberLineEdit;
-    QComboBox *roomAvailableComboBox;
-    QComboBox *roomFloorComboBox;
-    QLineEdit *priceLineEdit;
-    QLineEdit *facilitiesLineEdit;
-    QPushButton *createRoomButton;
-    QPushButton *cancelButton;
+    QLineEdit *hotel_name_line_edit_;
+    QLineEdit *room_number_line_edit_;
+    QComboBox *room_available_combo_box_;
+    QComboBox *room_floor_combo_box_;
+    QLineEdit *price_line_edit_;
+    QLineEdit *facilities_line_edit_;
+    QPushButton *create_room_button_;
+    QPushButton *cancel_button_;
 };
 
 #endif

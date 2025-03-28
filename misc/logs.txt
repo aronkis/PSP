@@ -2624,3 +2624,4 @@ Client id: 9999 Date: 2025-03-28
 Server id: 100 SQL command executed successfully! Date: 2025-03-28
 Client id: 1 Date: 2025-03-28
 Server id: 100 SQL command executed successfully! Date: 2025-03-28
+Opened database successfully!

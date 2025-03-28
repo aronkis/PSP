@@ -1,42 +1,37 @@
-#include "include/DeleteRoomDialog.h"
-#include <iostream>
 #include <QMessageBox>
+
+#include "include/DeleteRoomDialog.h"
+
 #include "../include/employee.h"
 #include "../include/room.h"
 
 DeleteRoomDialog::DeleteRoomDialog(QWidget *parent) : QDialog(parent)
 {
-    // Create the widgets
-    hotelNameLineEdit = new QLineEdit(this);
-    roomNumberLineEdit = new QLineEdit(this);
+    hotel_name_line_edit_ = new QLineEdit(this);
+    room_number_line_edit_ = new QLineEdit(this);
 
-    deleteRoomButton = new QPushButton("Delete Room", this);
-    cancelButton = new QPushButton("Cancel", this);
+    delete_room_button_ = new QPushButton("Delete Room", this);
+    cancel_button_ = new QPushButton("Cancel", this);
     
-    // Layout setup
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    // Hotel Name
     QHBoxLayout *hotelNameLayout = new QHBoxLayout();
     hotelNameLayout->addWidget(new QLabel("Hotel Name:", this));
-    hotelNameLayout->addWidget(hotelNameLineEdit);
+    hotelNameLayout->addWidget(hotel_name_line_edit_);
     mainLayout->addLayout(hotelNameLayout);
 
-    // Room Number
     QHBoxLayout *roomNumberLayout = new QHBoxLayout();
     roomNumberLayout->addWidget(new QLabel("Room Number:", this));
-    roomNumberLayout->addWidget(roomNumberLineEdit);
+    roomNumberLayout->addWidget(room_number_line_edit_);
     mainLayout->addLayout(roomNumberLayout);
     
-    // Buttons
     QHBoxLayout *buttonLayout = new QHBoxLayout();
-    buttonLayout->addWidget(deleteRoomButton);
-    buttonLayout->addWidget(cancelButton);
+    buttonLayout->addWidget(delete_room_button_);
+    buttonLayout->addWidget(cancel_button_);
     mainLayout->addLayout(buttonLayout);
 
-    // Connect signals and slots
-    connect(deleteRoomButton, &QPushButton::clicked, this, &DeleteRoomDialog::onDeleteRoomButtonClicked);
-    connect(cancelButton, &QPushButton::clicked, this, &DeleteRoomDialog::reject);
+    connect(delete_room_button_, &QPushButton::clicked, this, &DeleteRoomDialog::OnDeleteRoomButtonClicked);
+    connect(cancel_button_, &QPushButton::clicked, this, &DeleteRoomDialog::reject);
 
     setLayout(mainLayout);
     setWindowTitle("Delete Room");
@@ -44,14 +39,13 @@ DeleteRoomDialog::DeleteRoomDialog(QWidget *parent) : QDialog(parent)
 
 DeleteRoomDialog::~DeleteRoomDialog()
 {
-    // Cleanup if necessary (currently handled by Qt's parent-child system)
 }
 
-void DeleteRoomDialog::onDeleteRoomButtonClicked()
+void DeleteRoomDialog::OnDeleteRoomButtonClicked()
 {
     bool valid = true;
-    QString hotelName = hotelNameLineEdit->text();
-    QString roomNumber = roomNumberLineEdit->text();
+    QString hotelName = hotel_name_line_edit_->text();
+    QString roomNumber = room_number_line_edit_->text();
 
     if (hotelName.isEmpty()) {
         QMessageBox::warning(this, "Input Error", "Hotel name cannot be empty!");

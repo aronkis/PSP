@@ -1,8 +1,8 @@
+#include <chrono>
 #include <sstream>
 #include <arpa/inet.h>
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>
-#include <chrono>
 
 #include "../include/message.h"
 #include "../include/connection.h"

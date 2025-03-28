@@ -30,7 +30,7 @@ private slots:
     void LogOutDialog();
 
 private:
-    Ui::EmployeeGUI *ui;
+    Ui::EmployeeGUI *ui_;
     Employee employee_;
 };
 #endif

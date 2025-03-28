@@ -1,43 +1,38 @@
-#include "include/LogInDialog.h"
-#include <iostream>
 #include <QMessageBox>
+
+#include "include/LogInDialog.h"
+
 #include "../include/employee.h"
 
 LogInDialog::LogInDialog(EmployeeGUI *employeeGUI, QWidget *parent)
-    : QDialog(parent), employeeGUI(employeeGUI)
+    : QDialog(parent), employeeGUI_(employeeGUI)
 {
-    // Create the widgets
-    usernameLineEdit = new QLineEdit(this);
-    passwordLineEdit = new QLineEdit(this);
+    username_line_edit_ = new QLineEdit(this);
+    password_line_edit_ = new QLineEdit(this);
 
-    logInButton = new QPushButton("Log In", this);
-    cancelButton = new QPushButton("Cancel", this);
+    log_in_button_ = new QPushButton("Log In", this);
+    cancel_button_ = new QPushButton("Cancel", this);
     
-    // Layout setup
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    // Username
     QHBoxLayout *usernameLayout = new QHBoxLayout();
     usernameLayout->addWidget(new QLabel("Username:", this));
-    usernameLayout->addWidget(usernameLineEdit);
+    usernameLayout->addWidget(username_line_edit_);
     mainLayout->addLayout(usernameLayout);
 
-    // Password
     QHBoxLayout *passwordLayout = new QHBoxLayout();
     passwordLayout->addWidget(new QLabel("Password:", this));
-    passwordLineEdit->setEchoMode(QLineEdit::Password);
-    passwordLayout->addWidget(passwordLineEdit);
+    password_line_edit_->setEchoMode(QLineEdit::Password);
+    passwordLayout->addWidget(password_line_edit_);
     mainLayout->addLayout(passwordLayout);
     
-    // Buttons
     QHBoxLayout *buttonLayout = new QHBoxLayout();
-    buttonLayout->addWidget(logInButton);
-    buttonLayout->addWidget(cancelButton);
+    buttonLayout->addWidget(log_in_button_);
+    buttonLayout->addWidget(cancel_button_);
     mainLayout->addLayout(buttonLayout);
 
-    // Connect signals and slots
-    connect(logInButton, &QPushButton::clicked, this, &LogInDialog::onLogInButtonClicked);
-    connect(cancelButton, &QPushButton::clicked, this, &LogInDialog::reject);
+    connect(log_in_button_, &QPushButton::clicked, this, &LogInDialog::OnLogInButtonClicked);
+    connect(cancel_button_, &QPushButton::clicked, this, &LogInDialog::reject);
 
     setLayout(mainLayout);
     setWindowTitle("Log In");
@@ -45,14 +40,13 @@ LogInDialog::LogInDialog(EmployeeGUI *employeeGUI, QWidget *parent)
 
 LogInDialog::~LogInDialog()
 {
-    // Cleanup if necessary (currently handled by Qt's parent-child system)
 }
 
-void LogInDialog::onLogInButtonClicked()
+void LogInDialog::OnLogInButtonClicked()
 {
     bool valid = true;
-    QString username = usernameLineEdit->text();
-    QString password = passwordLineEdit->text();
+    QString username = username_line_edit_->text();
+    QString password = password_line_edit_->text();
 
     if (username.isEmpty()) {
         QMessageBox::warning(this, "Input Error", "Username required ");
@@ -72,7 +66,7 @@ void LogInDialog::onLogInButtonClicked()
             employee.Login();
             if (employee.GetLoggedIn())
             {
-                employeeGUI->setEmployee(employee);
+                employeeGUI_->setEmployee(employee);
                 QMessageBox::information(this, "Logged in", "Logged in successfully!");
                 accept();
             }

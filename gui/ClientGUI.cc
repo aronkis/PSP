@@ -1,32 +1,34 @@
-#include "include/ClientGUI.h"
-#include "ui/ClientUI/ui_ClientGUI.h"
 #include <QPushButton>
 #include <QLineEdit>
 #include <QLabel>
 #include <QDebug>
+
+#include "include/ClientGUI.h"
+#include "ui/ClientUI/ui_ClientGUI.h"
+
 #include "../include/client.h"
 #include "../include/room.h"
 
 ClientGUI::ClientGUI(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::ClientGUI)
+    : QMainWindow(parent), ui_(new Ui::ClientGUI)
 {
-    ui->setupUi(this);
+    ui_->setupUi(this);
 
-    connect(ui->sendButton, &QPushButton::clicked, this, &ClientGUI::OnSendButtonClicked);
+    connect(ui_->sendButton, &QPushButton::clicked, this, &ClientGUI::OnSendButtonClicked);
 }
 
 ClientGUI::~ClientGUI()
 {
-    delete ui;
+    delete ui_;
 }
 
 void ClientGUI::OnSendButtonClicked()
 {
-    QString hotel_name = ui->hotelNameInput->text();
-    QString roomLocation = ui->roomLocationInput->text();
-    QString roomPrice = ui->roomPriceInput->text();
-    QString roomAvailability = ui->roomAvailabilityInput->text();
-    QString roomFacilities = ui->roomFacilitiesInput->text();
+    QString hotel_name = ui_->hotelNameInput->text();
+    QString roomLocation = ui_->roomLocationInput->text();
+    QString roomPrice = ui_->roomPriceInput->text();
+    QString roomAvailability = ui_->roomAvailabilityInput->text();
+    QString roomFacilities = ui_->roomFacilitiesInput->text();
 
     if (hotel_name.isEmpty() || roomLocation.isEmpty() || roomPrice.isEmpty() || 
         roomAvailability.isEmpty() || roomFacilities.isEmpty()) 
@@ -77,25 +79,25 @@ void ClientGUI::OnSendButtonClicked()
             availability_label += ", " + QString::fromStdString(room.GetAvailability() ? "Yes" : "No");
         }
 
-        ui->roomIdLabel->setText(id_label);
-        ui->roomNumberLabel->setText(number_label);
-        ui->roomLocationLabel->setText(location_label);
-        ui->roomPriceLabel->setText(price_label);
-        ui->roomAvailabilityLabel->setText(availability_label);
+        ui_->room_id_label_->setText(id_label);
+        ui_->room_number_label_->setText(number_label);
+        ui_->room_location_label->setText(location_label);
+        ui_->room_price_label->setText(price_label);
+        ui_->room_availability_label_->setText(availability_label);
         
         QStringList outputFacilities;
         for (const auto& facility : room.GetFacilities()) {
             outputFacilities << QString::fromStdString(facility);
         }
-        ui->roomFacilitiesLabel->setText("Facilities: " + outputFacilities.join(" "));
+        ui_->room_facilities_label_->setText("Facilities: " + outputFacilities.join(" "));
     }
     else
     {
-        ui->roomIdLabel->setText("Room ID: No rooms available");
-        ui->roomNumberLabel->setText("Number: N/A");
-        ui->roomLocationLabel->setText("Location: N/A");
-        ui->roomPriceLabel->setText("Price: N/A");
-        ui->roomAvailabilityLabel->setText("Available: N/A");
-        ui->roomFacilitiesLabel->setText("Facilities: N/A");
+        ui_->room_id_label_->setText("Room ID: No rooms available");
+        ui_->room_number_label_->setText("Number: N/A");
+        ui_->room_location_label->setText("Location: N/A");
+        ui_->room_price_label->setText("Price: N/A");
+        ui_->room_availability_label_->setText("Available: N/A");
+        ui_->room_facilities_label_->setText("Facilities: N/A");
     }
 }
