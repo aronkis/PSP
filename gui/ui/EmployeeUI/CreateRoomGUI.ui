@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CreateRoomDialog</class>
+ <widget class="QMainWindow" name="CreateRoomDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+   
+    <!-- Input for hotel Name -->
+    <item>
+     <widget class="QLineEdit" name="hotelNameInput">
+      <property name="placeholderText">
+       <string>Enter hotel name</string>
+      </property>
+     </widget>
+    </item>
+    
+    <!-- Input for Location -->
+    <item>
+     <widget class="QLineEdit" name="roomFloorInput">
+      <property name="placeholderText">
+       <string>Enter Room Location</string>
+      </property>
+     </widget>
+    </item>
+
+    <!-- Input for room number -->
+    <item>
+     <widget class="QLineEdit" name="roomNumberInput">
+      <property name="placeholderText">
+       <string>Enter room number</string>
+      </property>
+     </widget>
+    </item>
+    
+    <!-- Input for Price -->
+    <item>
+     <widget class="QLineEdit" name="roomPriceInput">
+      <property name="placeholderText">
+       <string>Enter Price</string>
+      </property>
+     </widget>
+    </item>
+    
+    <!-- Input for Availability -->
+    <item>
+     <widget class="QLineEdit" name="roomAvailabilityInput">
+      <property name="placeholderText">
+       <string>Enter Availability (Yes/No)</string>
+      </property>
+     </widget>
+    </item>
+    
+    <!-- Input for Facilities -->
+    <item>
+     <widget class="QLineEdit" name="roomFacilitiesInput">
+      <property name="placeholderText">
+       <string>Enter Facilities (comma-separated)</string>
+      </property>
+     </widget>
+    </item>
+    
+    <!-- Send Button -->
+    <item>
+     <widget class="QPushButton" name="createRoomButton">
+      <property name="text">
+       <string>Send</string>
+      </property>
+     </widget>
+    </item>
+    
+    
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,5 +1,5 @@
 #include "include/ClientGUI.h"
-#include "ui/ui_ClientGUI.h"
+#include "ui/ClientUI/ui_ClientGUI.h"
 #include <QPushButton>
 #include <QLineEdit>
 #include <QLabel>
@@ -54,7 +54,7 @@ void ClientGUI::OnSendButtonClicked()
     for (const auto &facility : facilitiesList) {
         required_facilities.push_back(facility.toStdString());
     }
-    int is_available = roomAvailability == "Yes" ? 1 : 0;
+    bool is_available = roomAvailability == "Yes" ? 1 : 0;
     std::vector<Room> rooms = c.FilterRooms(hotel_name.toStdString(), roomLocation.toStdString(), 
                                             is_available, price, required_facilities);
 
