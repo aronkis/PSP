@@ -38,13 +38,13 @@ id, hotel_id, room_number, location, price, available, facilities
 
 Bookings:
 id, client_id, hotel_id, booking_date, status
-(1, 2, 1, '2025-03-27', 'Confirmed')
-(2, 2, 2, '2025-03-27', 'Pending')
-(3, 3, 3, '2025-03-27', 'Confirmed')
-(4, 3, 4, '2025-03-27', 'Pending')
-(5, 1, 5, '2025-03-27', 'Confirmed')
-(6, 1, 6, '2025-03-27', 'Pending')
-(7, 4, 7, '2025-03-27', 'Confirmed')
-(8, 4, 8, '2025-03-27', 'Pending')
-(9, 5, 9, '2025-03-27', 'Confirmed')
-(10, 5, 10, '2025-03-27', 'Pending')
+(1, 2, 1, '2025-03-28', 'Confirmed')
+(2, 2, 2, '2025-03-28', 'Pending')
+(3, 3, 3, '2025-03-28', 'Confirmed')
+(4, 3, 4, '2025-03-28', 'Pending')
+(5, 1, 5, '2025-03-28', 'Confirmed')
+(6, 1, 6, '2025-03-28', 'Pending')
+(7, 4, 7, '2025-03-28', 'Confirmed')
+(8, 4, 8, '2025-03-28', 'Pending')
+(9, 5, 9, '2025-03-28', 'Confirmed')
+(10, 5, 10, '2025-03-28', 'Pending')

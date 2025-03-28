@@ -1,8 +1,12 @@
-import sqlite3
 import os
+import sqlite3
 from datetime import datetime
 
-conn = sqlite3.connect('../database/Hotels.db')
+script_dir = os.path.dirname(os.path.abspath(__file__))
+db_path = "Hotels.db"
+db_path = os.path.join(script_dir, db_path).replace("misc","database")
+
+conn = sqlite3.connect(db_path)
 cursor = conn.cursor()
 
 cursor.execute('''
@@ -131,10 +135,9 @@ conn.commit()
 print("Database populated successfully.")
 
 def show_data():
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    file_name = "DatabaseContent.txt"
-    file_path = os.path.join(script_dir, file_name)
-    with open(file_path, "w") as file:
+    conente_path = "DatabaseContent.txt"
+    conente_path = os.path.join(script_dir, conente_path)
+    with open(conente_path, "w") as file:
         print("File Opened")
         file.write("Users (Employees and Administrators):\n")
         file.write("id, username, email, password, role\n")
