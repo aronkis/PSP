@@ -1,0 +1,24 @@
+Users (Employees and Administrators):
+username, password, role
+(1, 'admin', 'password123', 1)
+(2, 'user1', 'password1', 2)
+(3, 'user2', 'password2', 2)
+
+Clients (No Password):
+client_name, client_email, client_phone_number
+(1, '2025-01-01', '2025-12-31', 1, 1)
+(2, '2025-06-10', '2025-06-15', 2, 2)
+(3, '2025-06-20', '2025-06-22', 3, 3)
+
+Bookings:
+start_date, end_date, room_id, client_id
+(1, '2025-01-01', '2025-12-31', 1, 1)
+(2, '2025-06-10', '2025-06-15', 2, 2)
+(3, '2025-06-20', '2025-06-22', 3, 3)
+
+Rooms:
+hotel_name, number, location, price, position, facilities
+(1, 'Hotel A', 101, 'Paris', 120.5, '1st floor', 'TV, AC, WiFi')
+(2, 'Hotel B', 102, 'New York', 200.0, '2nd floor', 'TV, WiFi')
+(3, 'Hotel A', 103, 'Paris', 150.0, '1st floor', 'AC, WiFi')
+(4, 'Hotel C', 104, 'Tokyo', 180.75, '3rd floor', 'WiFi')

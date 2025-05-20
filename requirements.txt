@@ -1,0 +1,4 @@
+PyQt5
+SQLite3
+websockets
+matplotlib
